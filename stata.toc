@@ -1,4 +1,12 @@
 v 3
-d statapush Stata module by William Schpero
-
-p parallel Stata module for push notifications
+d ‘STATAPUSH’: module for push notifications
+d
+d Requires: Stata version 13
+d
+d Distribution-Date: 20160201
+d
+d Author: William L. Schpero
+d Support: william.schpero@yale.edu
+d
+d
+p statapush Stata module for push notifications
