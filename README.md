@@ -15,7 +15,7 @@ Stata net install isn't working for me at the moment. For now, please install st
 	
 ###Using statapush
 
-statapush is pretty simple to use. Just place the snippet below (with your API token, user key, and message) at the point you want Stata to generate the push notification in your do file. Then run the file
+statapush is pretty simple to use. Just place the snippet below (with your API token, user key, and message) at the point you want Stata to generate the push notification in your do file. Then run the file.
 
 	statapush, token(<TOKEN>) userid(<USER KEY>) message(<MESSAGE>)
 
