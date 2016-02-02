@@ -1,5 +1,5 @@
 # statapush
-statapush is a simple Stata module for generating push notifications from the Stata command line that is heavily inspired by the R package [pushoverr](https://github.com/briandconnelly/pushoverr).
+statapush is a simple Stata module for generating push notifications from the Stata command line. It is heavily inspired by the R package [pushoverr](https://github.com/briandconnelly/pushoverr).
 
 When you have an analysis that will take some time to complete, you can use statapush to let you know your code has finished running via an alert on your mobile device. statapush relies on the push notification service [Pushover](https://pushover.net).
 
