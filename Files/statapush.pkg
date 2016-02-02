@@ -1,7 +1,0 @@
-v 3
-d statapush. push notifications from the Stata command line.
-d William L. Schpero.
-d Yale University.
-d william.schpero@yale.edu.
-p statapush.ado
-p statapush.sthlp
