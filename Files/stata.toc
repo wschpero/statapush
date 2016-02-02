@@ -1,4 +1,4 @@
 v 3
 d William L. Schpero
-d Yale University
+
 p statapush
