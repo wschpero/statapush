@@ -15,7 +15,7 @@ Run the code below via the Stata command line:
 
 ###Installation (Stata 12.1+)
 
-Download the five files above. Run the code below via the Stata command line, inserting the directory where you saved the files (e.g., your downloads folder):
+Download the files above. Run the code below via the Stata command line, inserting the directory where you saved the files (e.g., your downloads folder):
 
 	net install statapush, from(<LOCAL PATH TO FILES>) replace
 
