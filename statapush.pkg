@@ -1,6 +1,6 @@
 d statapush: Stata module for sending push notifications
 d
-d Requires: Stata version 12.0+
+d Requires: Stata version 12.1+
 d
 d Distribution-Date: 20160201
 d
