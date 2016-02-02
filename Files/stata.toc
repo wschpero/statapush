@@ -6,4 +6,8 @@ d Author: William L. Schpero
 d Institution: Yale University
 d Contact: william.schpero@yale.edu
 d
+<<<<<<< HEAD
 p statapush
+=======
+p statapush.pkg
+>>>>>>> origin/master
