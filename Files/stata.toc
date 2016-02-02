@@ -1,4 +1,6 @@
 v 3
+d statapush
 d William L. Schpero
-
-p statapush
+d Yale University
+d william.schpero@yale.edu
+p statapush push notifications from the Stata command line
