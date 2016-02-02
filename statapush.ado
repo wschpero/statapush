@@ -1,13 +1,11 @@
 /*
 
-Title: StataPush
-Description: Stata module for sending push notifications
+statapush: Stata module for sending push notifications
 
-Author: William Schpero
-Institution: Yale University
+Author: William L. Schpero
 Contact: william.schpero@yale.edu
-Date: February 2016
-Version: 0.5
+Date: 020116
+Version: 1.0
 
 */
 
