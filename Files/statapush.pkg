@@ -1,11 +1,11 @@
-v 3
-d statapush
+d ‘STATAPUSH’: module for push notifications
 d
-d Stata module for sending push notifications from the command line
+d Requires: Stata version 13
 d
-d Author: William L. Schpero
-d Institution: Yale University
-d Contact: william.schpero@yale.edu
+d Distribution-Date: 20160201
+d
+d Author: William Schpero
+d Support: william.schpero@yale.edu
 d
 f statapush.ado
 f statapush.sthlp

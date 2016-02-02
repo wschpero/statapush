@@ -1,9 +1,4 @@
 v 3
-d statapush
-d
-d Stata module for sending push notifications from the command line
-d Author: William L. Schpero
-d Institution: Yale University
-d Contact: william.schpero@yale.edu
-d
-p statapush
+d statapush Stata module by William Schpero
+
+p parallel Stata module for push notifications
