@@ -15,7 +15,7 @@ help for {hi:statapush}
 
 {title: Description}
 
-{p 4 8}{cmd:statapush} is compatible with Stata v 13.1. While it likely is compatible with earlier versions, it has not been tested in those environments.
+{p 4 8}{cmd:statapush} is compatible with Stata v 12.1+. While it likely is compatible with earlier versions, it has not been tested in those environments.
 
 {p 4 8}{cmd:statapush} requires cURL, an open source command line tool and library. cURL is installed by default on most computers using Mac OS, but likely requires manual installation by Windows OS users. cURL may be downloaded by going to https://curl.haxx.se/download.html.
 
@@ -36,5 +36,4 @@ help for {hi:statapush}
 {title:Author}
 
 {p 4 4}William L. Schpero{break}
-Yale University{break}
 william.schpero@yale.edu{break}
