@@ -11,8 +11,10 @@ When you have an analysis that will take some time to complete, you can use stat
 
 ###Installation
 
-Stata net install isn't working for me at the moment. For now, please install statapush manually.
-	
+Run the code below via the Stata command line:
+
+	net install statapush, from(https://raw.github.com/wschpero/statapush/master/) replace
+
 ###Using statapush
 
 statapush is pretty simple to use. Just place the snippet below (with your API token, user key, and message) at the point you want Stata to generate the push notification in your do file. Then run the file.
