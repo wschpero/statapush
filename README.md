@@ -11,9 +11,7 @@ When you have an analysis that will take some time to complete, you can use stat
 
 ###Installation
 
-For the moment, please install statapush from Github using the code below:
-
-	net install statapush, from(https://github.com/wschpero/statapush/tree/master/Files)
+Stata net install isn't working for me at the moment. For now, please install statapush manually.
 	
 ###Using statapush
 
