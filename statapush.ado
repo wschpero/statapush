@@ -14,7 +14,7 @@ program statapush
 	version 12.1
 	
 	syntax , Token(string) Userid(string) Message(string)
-	quietly !curl -s -F "token=`token'" -F "user=`userid'" -F "title=StataPush" -F "message=`message'" https://api.pushover.net/1/messages.json
+	quietly !curl -s -F "token=`token'" -F "user=`userid'" -F "title=statapush" -F "message=`message'" https://api.pushover.net/1/messages.json
 	display "Notification pushed at `c(current_time)'"
 
 end
