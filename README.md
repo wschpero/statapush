@@ -15,7 +15,7 @@ Run the code below via the Stata command line:
 
 ###Installation (Stata 12.1+)
 
-Download the files above. Run the code below via the Stata command line, inserting the directory where you saved the files (e.g., your downloads folder):
+Download and unarchive the [zip file](https://github.com/wschpero/statapush/blob/master/statapush.zip?raw=true) above. Run the code below via the Stata command line, inserting the directory where you saved the files:
 
 	net install statapush, from(<LOCAL PATH TO FILES>) replace
 
