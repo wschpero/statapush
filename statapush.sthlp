@@ -39,4 +39,4 @@
 {title: Author}
 
 {p 4 4}William L. Schpero{break}
-{browse "mailto:william.schpero@yale.edu":william.schpero@yale.edu}
+{browse "mailto:william.schpero@yale.edu":william.schpero@yale.edu}{break}
