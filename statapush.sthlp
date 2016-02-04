@@ -3,6 +3,7 @@
 {title: Title}
 
 {p 4 8}{cmd:statapush} — Stata module for sending push notifications
+
 {title: Syntax}
 
 {p 4 8}{cmd:statapush}, {cmdab:t:oken}({it:string}) {cmdab:u:serid}({it:string}) {cmdab:m:essage}({it:string})
