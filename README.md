@@ -17,7 +17,7 @@ statapush is a simple Stata module for sending push notifications. It is designe
 
 	net install statapush, from(https://raw.github.com/wschpero/statapush/master/) replace
 
-**Github (for Stata v12.1+)**: Download and unarchive the [zip file](https://github.com/wschpero/statapush/blob/master/statapush.zip?raw=true) above. Run the code below via the Stata command line, inserting the directory where you saved the files.
+**Github (for Stata v12.1+)**: [Download](https://github.com/wschpero/statapush/archive/master.zip) the files above. Run the code below via the Stata command line, inserting the directory where you saved the files.
 
 	net install statapush, from(<LOCAL PATH TO FILES>) replace
 
