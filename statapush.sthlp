@@ -20,7 +20,7 @@
 
 {p 4 8}{bf:2.} Register a new Pushover application. Choose any name for the application (e.g., StataPush) and select “Application” under the “Type” dropdown. Make note of the API token associated with this application.
 
-{p 4 8}{bf:3.} Install the Pushover client on your device (Android, iOS, or Desktop). The client is available for a free seven-day trial, after which users must pay a one-time $4.99 fee per device.
+{p 4 8}{bf:3.} Install the Pushover {browse "https://pushover.net/clients":client} on your device (Android, iOS, or Desktop). The client is available for a free seven-day trial, after which users must pay a one-time $4.99 fee per device.
 
 {title: Options}
 
