@@ -11,7 +11,7 @@ statapush is a simple Stata module for sending push notifications. It is designe
 
 **SSC Archive**: Run the code below via the Stata command line.
 	
-	PENDING
+	ssc install statapush
 
 **Github (for Stata v13.1+)**: Run the code below via the Stata command line.
 
