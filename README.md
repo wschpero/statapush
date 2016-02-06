@@ -9,7 +9,7 @@ statapush is a simple Stata module for sending push notifications. It is designe
 
 ###Installation Options
 
-**[SSC Archive](https://ideas.repec.org/c/boc/bocode/s458139.html)**: Run the code below via the Stata command line.
+**SSC Archive**: Run the code below via the Stata command line.
 	
 	ssc install statapush
 
