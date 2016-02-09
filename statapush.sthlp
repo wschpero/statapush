@@ -1,5 +1,5 @@
 {smcl}
-{* 03feb2016}
+{* 09feb2016}
 {title: Title}
 
 {p 4 8}{cmd:statapush} — Stata module for sending push notifications
@@ -12,7 +12,7 @@
 
 {p 4 8}{cmd:statapush} is compatible with Stata v12.1+. While it may be compatible with earlier versions, it has not been tested in those environments.
 
-{p 4 8}{cmd:statapush} requires cURL, an open source command line tool and library. cURL is installed by default on computers using the Mac OS, but requires {browse "https://curl.haxx.se/download.html":manual installation} for the Windows OS.
+{p 4 8}{cmd:statapush} requires cURL, an open source command line tool and library. cURL is installed by default on computers using the Mac OS and Unix, but requires {browse "https://curl.haxx.se/download.html":manual installation} for the Windows OS.
 
 {p 4 8}{cmd:statapush} also requires use of the push notification service Pushover.
 
