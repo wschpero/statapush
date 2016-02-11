@@ -2,7 +2,7 @@
 {* 09feb2016}
 {title: Title}
 
-{p 4 8}{cmd:statapush} — Stata module for sending push notifications
+{p 4 8}{cmd:statapush} - Stata module for sending push notifications
 
 {title: Syntax}
 
@@ -12,13 +12,13 @@
 
 {p 4 8}{cmd:statapush} is compatible with Stata v12.1+. While it may be compatible with earlier versions, it has not been tested in those environments.
 
-{p 4 8}{cmd:statapush} requires cURL, an open source command line tool and library. cURL is installed by default on computers using the Mac OS and Unix, but requires {browse "https://curl.haxx.se/download.html":manual installation} for the Windows OS.
+{p 4 8}{cmd:statapush} requires cURL, an open source command line tool and library. cURL is installed by default on computers using Mac OS and Unix, but requires {browse "https://curl.haxx.se/download.html":manual installation} for Windows.
 
 {p 4 8}{cmd:statapush} also requires use of the push notification service Pushover.
 
 {p 4 8}{bf:1.} Create a free {browse "https://pushover.net":Pushover} account and make note of your user key.
 
-{p 4 8}{bf:2.} Register a new Pushover application. Choose any name for the application (e.g., StataPush) and select “Application” under the “Type” dropdown. Make note of the API token associated with this application.
+{p 4 8}{bf:2.} Register a new Pushover application. Choose any name for the application (e.g., StataPush) and select "Application" under the "Type" dropdown. Make note of the API token associated with this application.
 
 {p 4 8}{bf:3.} Install the Pushover {browse "https://pushover.net/clients":client} on your device (Android, iOS, or Desktop). The client is available for a free seven-day trial, after which users must pay a one-time $4.99 fee per device.
 
