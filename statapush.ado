@@ -10,19 +10,26 @@ Version: 1.1
 capture program drop statapush
 program define statapush
     version 12.1
-    syntax [using/], Token(string) Userid(string) Message(string)
+    syntax [using/], Token(string) Userid(string) Message(string) [Provider(string)]
+
+    if "`provider'" == "" | "`provider'" == "pushover" {
+        local pushcmd "_statapush"
+    }
+    else if "`provider'" == "pushbullet" {
+        local pushcmd "_statapushbullet"
+    }
 
     if "`using'" != "" {
         capture noisily do "`using'"
         if _rc == 0 {
-            _statapush, t(`token') u(`userid') m(`message')
+            `pushcmd', t(`token') u(`userid') m(`message')
         }
         else {
-            _statapush, t(`token') u(`userid') m("There's an error in `using'.")
+            `pushcmd', t(`token') u(`userid') m("There's an error in `using'.")
         }
     }
     else {
-        _statapush, t(`token') u(`userid') m(`message')
+        `pushcmd', t(`token') u(`userid') m(`message')
     }
 
 end
@@ -35,6 +42,18 @@ program define _statapush
     display "Notification pushed at `c(current_time)'"
 end
 
-/*
- 
-*/
+capture program drop _statapush
+program define _statapush
+    version 12.1
+    syntax [using/], Token(string) Userid(string) Message(string)
+    quietly !curl -s -F "token=`token'" -F "user=`userid'" -F "title=statapush" -F "message=`message'" https://api.pushover.net/1/messages.json
+    display "Notification pushed at `c(current_time)'"
+end
+
+capture program drop _statapushbullet
+program define _statapushbullet
+    version 12.1
+    syntax [using/], Token(string) Message(string) [Userid(string)]
+    quietly !curl https://api.pushbullet.com/v2/pushes -X POST -u "`token'": --header "Content-Type: application/json" --data-binary "{\"type\": \"note\", \"title\":\"StataPush\", \"body\": \"`message'\"}"
+    display "Notification pushed at `c(current_time)'"
+end
