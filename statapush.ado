@@ -42,14 +42,6 @@ program define _statapush
     display "Notification pushed at `c(current_time)'"
 end
 
-capture program drop _statapush
-program define _statapush
-    version 12.1
-    syntax [using/], Token(string) Userid(string) Message(string)
-    quietly !curl -s -F "token=`token'" -F "user=`userid'" -F "title=statapush" -F "message=`message'" https://api.pushover.net/1/messages.json
-    display "Notification pushed at `c(current_time)'"
-end
-
 capture program drop _statapushbullet
 program define _statapushbullet
     version 12.1
