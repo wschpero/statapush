@@ -18,7 +18,7 @@ program define statapush
             _statapush, t(`token') u(`userid') m(`message')
         }
         else {
-            _statapush, t(`token') u(`userid') m("There's an error")
+            _statapush, t(`token') u(`userid') m("There's an error in `using'.")
         }
     }
     else {

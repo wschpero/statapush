@@ -6,7 +6,11 @@
 
 {title: Syntax}
 
-{p 4 8}{cmd:statapush}, {cmdab:t:oken}({it:string}) {cmdab:u:serid}({it:string}) {cmdab:m:essage}({it:string})
+{p 4 8}{cmd:statapush} [{cmd:using} {it:{help filename}}], {cmdab:t:oken}({it:string}) {cmdab:u:serid}({it:string}) {cmdab:m:essage}({it:string})
+
+{pstd}
+You may optionally include a do file to run in {it:filename}. Doing so will enable you to still get a notification if you code contains an error. You may enclose {it:filename} in double quotes and must do so if
+{it:filename} contains blanks or other special characters.
 
 {title: Description}
 

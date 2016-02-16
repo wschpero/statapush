@@ -27,6 +27,10 @@ statapush is pretty simple to use. Just place the snippet below (with your API t
 
 	statapush, token(<TOKEN>) userid(<USER KEY>) message(<MESSAGE>)
 
+statapush can also run a do file by optionally including a do file. Doing so will enable you to receive a notification when you do file completes.
+
+    statapush using "<FILENAME>", token(<TOKEN>) userid(<USER KEY>) message(<MESSAGE>)
+
 ###Bug Reports
 
 Please [let me know](https://github.com/wschpero/statapush/issues) if you encounter any issues. Enjoy!
