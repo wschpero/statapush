@@ -6,7 +6,7 @@
 
 {title: Syntax}
 
-{p 4 8}{cmd:statapush} [{cmd:using} {it:{help filename}}], {cmdab:t:oken}({it:string}) {cmdab:u:serid}({it:string}) {cmdab:m:essage}({it:string})
+{p 4 8}{cmd:statapush} [{cmd:using} {it:{help filename}}], {cmdab:t:oken}({it:string}) {cmdab:u:serid}({it:string}) {cmdab:m:essage}({it:string}) [{cmdab:p:rovider}({it:string})]
 
 {pstd}
 You may optionally include a do file to run in {it:filename}. Doing so will enable you to still get a notification if you code contains an error. You may enclose {it:filename} in double quotes and must do so if
@@ -35,6 +35,9 @@ You may optionally include a do file to run in {it:filename}. Doing so will enab
 {p 4 8}{cmdab:u:serid}({it:string}) Use this option to provide your Pushover user key.
 
 {p 4 8}{cmdab:m:essage}({it:string}) Use this option to specify the message you would like included in your push notification.
+
+{p 4 8}{bf:Note:} The following argument is not required.
+{p 4 8}{cmdab:m:essage}({it:string}) Use this option to specify the provider of the push notifications you'd like to use (Pushover or Pushbullet). By default, Pushover is used. Pass "pushbullet" to use Pushbullet.
 
 {title: Examples}
 
