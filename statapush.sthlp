@@ -36,8 +36,9 @@ You may optionally include a do file to run in {it:filename}. Doing so will enab
 
 {p 4 8}{cmdab:m:essage}({it:string}) Use this option to specify the message you would like included in your push notification.
 
-{p 4 8}{bf:Note:} The following argument is not required.
-{p 4 8}{cmdab:m:essage}({it:string}) Use this option to specify the provider of the push notifications you'd like to use (Pushover or Pushbullet). By default, Pushover is used. Pass "pushbullet" to use Pushbullet.
+{p 4 8}{bf:Note:} The follow argument is not required.
+
+{p 4 8}{cmdab:p:rovider}({it:string}) Use this option to specify the provider of the push notifications you'd like to use (Pushover or Pushbullet). By default, Pushover is used. Pass "pushbullet" to use Pushbullet.
 
 {title: Examples}
 
