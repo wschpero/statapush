@@ -64,6 +64,6 @@ program define _statapushprefgrab, rclass
     quietly include "`r(fn)'"
     return local provider "`default_provider'"
     return local token    "``default_provider'_token'"
-    return local user_id  "``default_provider'_userid'"
+    return local userid  "``default_provider'_userid'"
 end
 
