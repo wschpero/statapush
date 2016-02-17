@@ -9,3 +9,5 @@ d Support: william.schpero@yale.edu
 d
 f statapush.ado
 f statapush.sthlp
+f statapushpref.ado
+f statapushpref.do
