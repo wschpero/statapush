@@ -39,7 +39,7 @@ You can also set your default preferences so you don't need to include your API 
 
     statapushpref, provider("pushover") userid(<USER KEY>) token(<TOKEN>)
 
-You preferences are saved in a file called statapushpref.ado along with your other Stata packages.
+You preferences are saved in a file called statapushpref.do along with your other Stata packages.
 
 ###Bug Reports
 

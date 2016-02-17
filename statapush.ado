@@ -58,18 +58,6 @@ program define _statapushbullet
     display "Notification pushed at `c(current_time)'"
 end
 
-capture program drop statapushpref
-program define statapushpref
-    version 12.1
-    syntax, Provider(string) Token(string) Userid(string)
-    findfile statapushpref.ado
-    file open statapushpref_ado using "`r(fn)'", write append
-    file write statapushpref_ado "local default_provider `provider'" _n
-    file write statapushpref_ado "local `provider'_token `token'"    _n
-    file write statapushpref_ado "local `provider'_userid `userid'"  _n
-    file close statapushpref_ado
-end
-
 capture program drop _statapushprefgrab
 program define _statapushprefgrab, rclass
     findfile statapushpref.ado
