@@ -10,7 +10,15 @@ Version: 1.1
 capture program drop statapush
 program define statapush
     version 12.1
-    syntax [using/], Token(string) Userid(string) Message(string) [Provider(string)]
+    syntax [using/], Message(string) [Token(string) Userid(string)] [Provider(string)]
+
+    * Load default preferences if token/userid not given
+    if "`token'" == "" {
+        _statapushprefgrab
+        local token "`r(token)'"
+        local userid "`r(userid)'"
+        local provider "`r(provider)'"
+    }
 
     if "`provider'" == "" | "`provider'" == "pushover" {
         local pushcmd "_statapush"
@@ -49,3 +57,25 @@ program define _statapushbullet
     quietly !curl https://api.pushbullet.com/v2/pushes -X POST -u "`token'": --header "Content-Type: application/json" --data-binary "{\"type\": \"note\", \"title\":\"StataPush\", \"body\": \"`message'\"}"
     display "Notification pushed at `c(current_time)'"
 end
+
+capture program drop statapushpref
+program define statapushpref
+    version 12.1
+    syntax, Provider(string) Token(string) Userid(string)
+    findfile statapushpref.ado
+    file open statapushpref_ado using "`r(fn)'", write append
+    file write statapushpref_ado "local default_provider `provider'" _n
+    file write statapushpref_ado "local `provider'_token `token'"    _n
+    file write statapushpref_ado "local `provider'_userid `userid'"  _n
+    file close statapushpref_ado
+end
+
+capture program drop _statapushprefgrab
+program define _statapushprefgrab, rclass
+    findfile statapushpref.ado
+    quietly include "`r(fn)'"
+    return local provider "`default_provider'"
+    return local token    "``default_provider'_token'"
+    return local user_id  "``default_provider'_userid'"
+end
+
