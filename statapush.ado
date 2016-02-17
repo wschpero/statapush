@@ -60,7 +60,7 @@ end
 
 capture program drop _statapushprefgrab
 program define _statapushprefgrab, rclass
-    findfile statapushconfig.ado
+    quietly findfile statapushconfig.ado
     quietly include "`r(fn)'"
     return local provider "`default_provider'"
     return local token    "``default_provider'_token'"
