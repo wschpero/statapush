@@ -1,6 +1,6 @@
 /*
 statapushpref: Stata module to save preferences for statapush
-Author: William L. Schpero
+Authors: William L. Schpero and Vikram Jambulapati
 Contact: william.schpero@yale.edu
 Date: 022016
 Version: 1.0

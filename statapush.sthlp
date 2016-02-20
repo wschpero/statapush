@@ -66,7 +66,10 @@
 
 {p 4 8}{cmd:statapush}, {cmdab:m:essage}({it:<INSERT MESSAGE>}) 
 
-{title: Author}
+{title: Authors}
 
-{p 4 4}William L. Schpero{break}
-{browse "mailto:william.schpero@yale.edu":william.schpero@yale.edu}{break}
+{p 4 4}William L. Schpero and Vikram Jambulapati
+
+{title: Contact}
+
+{p 4 4}{browse "mailto:william.schpero@yale.edu":william.schpero@yale.edu}{break}

@@ -4,7 +4,7 @@ d Requires: Stata version 12.1+
 d
 d Distribution-Date: 022016
 d
-d Author: William L. Schpero
+d Authors: William L. Schpero and Vikram Jambulapati
 d Contact: william.schpero@yale.edu
 d
 f statapush.ado

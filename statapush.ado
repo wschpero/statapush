@@ -1,6 +1,6 @@
 /*
 statapush: Stata module for sending push notifications
-Author: William L. Schpero
+Authors: William L. Schpero and Vikram Jambulapati
 Contact: william.schpero@yale.edu
 Date: 022016
 Version: 2.0

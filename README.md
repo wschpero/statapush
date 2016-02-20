@@ -7,7 +7,7 @@ statapush is a simple Stata module for sending push notifications. It is designe
 2. **cURL**:  statapush requires [cURL](https://curl.haxx.se/download.html), an open source command line tool and library. cURL is installed by default on most computers using Mac OS and Unix, but likely requires manual installation for Windows.
 3. **Pushbullet** or **Pushover**:  statapush requires users to sign up for a free [Pushbullet](https://www.pushbullet.com) or [Pushover](https://pushover.net) account. 
 
-#####For Pusbullet:
+#####For Pushbullet:
 1. Create a free [Pushbullet](http://pushbullet.com/) account.
 2. Create an API token under [account settings](https://www.pushbullet.com/#settings/account) by clicking "Create Access Token."
 3. Install the Pushbullet [client](https://www.pushbullet.com/apps) on your device (Android, iOS, or Desktop).
@@ -56,4 +56,4 @@ Please [let me know](https://github.com/wschpero/statapush/issues) if you encoun
 
 ###Disclaimers
 
-This Stata module and its author are not affiliated with [Pushbullet](http://pushbullet.com/) or [Pushover](https://pushover.net).
+This Stata module and its authors are not affiliated with [Pushbullet](http://pushbullet.com/) or [Pushover](https://pushover.net).
