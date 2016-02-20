@@ -28,7 +28,7 @@ program define statapush
         local pushcmd "_statapushbullet"
     }
     else {
-        display as error "Invalid provider: `provider'. Need to supply pushover or pushbullet."
+        display as error "Invalid provider: `provider'. Need to use 'pushover' or 'pushbullet'."
         exit 198
     }
 
