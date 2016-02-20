@@ -27,15 +27,13 @@ statapush is pretty simple to use. Just place the snippet below (with your API t
 
 	statapush, token(<TOKEN>) userid(<USER KEY>) message(<MESSAGE>)
 
-<<<<<<< HEAD
 statapush can also run a do file by optionally including the file path to the do file. Doing so will enable you to receive a notification even when your do file contains an error.
-=======
+
 If you'd like to use Pushbullet, simply add the option
 
-    statapush, token(<TOKEN>) userid(<USER KEY>) message(<MESSAGE>) provider("pushbullet")
+    statapush, token(<TOKEN>) userid(<USER KEY>) message(<MESSAGE>) provider(pushbullet)
 
 statapush can also run a do file by optionally including a do file. Doing so will enable you to receive a notification when you do file completes.
->>>>>>> develop
 
     statapush using <FILENAME>, token(<TOKEN>) userid(<USER KEY>) message(<MESSAGE>)
 
