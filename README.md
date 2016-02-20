@@ -33,7 +33,7 @@ If you'd like to use Pushbullet, simply add the option
 
 statapush can also run a do file by optionally including a do file. Doing so will enable you to receive a notification when you do file completes.
 
-    statapush using "<FILENAME>", token(<TOKEN>) userid(<USER KEY>) message(<MESSAGE>)
+    statapush using <FILENAME>, token(<TOKEN>) userid(<USER KEY>) message(<MESSAGE>)
 
 You can also set your default preferences so you don't need to include your API token and user ID every time.
 
