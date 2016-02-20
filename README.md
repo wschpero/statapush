@@ -33,7 +33,7 @@ statapush is a simple Stata module for sending push notifications. It is designe
 
 ###Using statapush
 
-statapush is pretty easy to use. Just place the snippet below (with your API token, user key, and message) at the point you want Stata to generate the push notification in your do file. Then run the file. Pushbullet users: note that your user key is your account username.
+statapush is pretty easy to use. Just place the snippet below (with your API token, user key, and message) at the point you want Stata to generate the push notification in your do file.
 
 	statapush, token(<INSERT API TOKEN>) userid(<INSERT USER KEY>) message(<INSERT MESSAGE>)
 
