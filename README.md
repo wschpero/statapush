@@ -48,6 +48,7 @@ If you would like statapush to notify you when your code has finished running *a
 Lastly, you can set your default preferences so you do not need to include your API token and user key every time you run the command. Your preferences are saved in a file called statapushconfig.ado along with your other Stata packages. Be sure to specify either "pushbullet" or "pushover" in the the "provider()" argument.
 
     statapushpref, token(<INSERT API TOKEN>) userid(<INSERT USER KEY>) provider(<INSERT PROVIDER>)
+    statapush, message(<INSERT MESSAGE>)
 
 ###Bug Reports
 
