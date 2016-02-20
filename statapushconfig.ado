@@ -1,0 +1,15 @@
+local default_provider pushover
+local pushover_token aRyeC6J5Qk81MtWxwLGBkteuQ2t7kG
+local pushover_userid uKMk6zAoMZHX9XpzQ3SKLNtVzmDWW5
+local default_provider pushover
+local pushover_token aRyeC6J5Qk81MtWxwLGBkteuQ2t7kG
+local pushover_userid uKMk6zAoMZHX9XpzQ3SKLNtVzmDWW5
+local default_provider pushover
+local pushover_token aRyeC6J5Qk81MtWxwLGBkteuQ2t7kG
+local pushover_userid uKMk6zAoMZHX9XpzQ3SKLNtVzmDWW5
+local default_provider pushover
+local pushover_token aRyeC6J5Qk81MtWxwLGBkteuQ2t7kG
+local pushover_userid uKMk6zAoMZHX9XpzQ3SKLNtVzmDWW5
+local default_provider pushover
+local pushover_token aRyeC6J5Qk81MtWxwLGBkteuQ2t7kG
+local pushover_userid uKMk6zAoMZHX9XpzQ3SKLNtVzmDWW5

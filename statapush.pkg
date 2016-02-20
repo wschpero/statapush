@@ -2,10 +2,10 @@ d statapush: Stata module for sending push notifications
 d
 d Requires: Stata version 12.1+
 d
-d Distribution-Date: 20160201
+d Distribution-Date: 022016
 d
 d Author: William L. Schpero
-d Support: william.schpero@yale.edu
+d Contact: william.schpero@yale.edu
 d
 f statapush.ado
 f statapush.sthlp

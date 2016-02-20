@@ -1,7 +1,15 @@
+/*
+statapushpref: Stata module to save preferences for statapush
+Author: William L. Schpero
+Contact: william.schpero@yale.edu
+Date: 022016
+Version: 1.0
+*/
+
 capture program drop statapushpref
 program define statapushpref
     version 12.1
-    syntax, Provider(string) Token(string) Userid(string)
+    syntax, Token(string) Userid(string) Provider(string)
     quietly findfile statapushconfig.ado
     local statapushconfig "`r(fn)'"
     quietly file open statapushpref_ado using "`statapushconfig'", write append
@@ -10,6 +18,6 @@ program define statapushpref
     quietly file write statapushpref_ado "local `provider'_userid `userid'"  _n
     quietly file close statapushpref_ado
     if _rc == 0 {
-        display as result "Your preferences have been saved in {browse `statapushconfig'}"
+        display as result "Your preferences have been saved in statapushconfig.ado."
     }
 end
