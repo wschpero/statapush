@@ -37,7 +37,7 @@ statapush can also run a do file by optionally including a do file. Doing so wil
 
 You can also set your default preferences so you don't need to include your API token and user ID every time.
 
-    statapushpref, provider("pushover") userid(<USER KEY>) token(<TOKEN>)
+    statapushpref, provider(pushover) userid(<USER KEY>) token(<TOKEN>)
 
 You preferences are saved in a file called statapushconfig.ado along with your other Stata packages.
 

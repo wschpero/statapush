@@ -15,18 +15,24 @@ program define statapush
     * Load default preferences if token/userid not given
     if "`token'" == "" {
         _statapushprefgrab
-        local token "`r(token)'"
-        local userid "`r(userid)'"
+        local token    "`r(token)'"
+        local userid   "`r(userid)'"
         local provider "`r(provider)'"
     }
 
-    if "`provider'" == "" | "`provider'" == "pushover" {
+    * Pick pushcmd based on provider
+    if "`provider'" == "" | lower("`provider'") == "pushover" {
         local pushcmd "_statapush"
     }
-    else if "`provider'" == "pushbullet" {
+    else if lower("`provider'") == "pushbullet" {
         local pushcmd "_statapushbullet"
     }
+    else {
+        display as error "Invalid provider: `provider'. Need to supply pushover or pushbullet."
+        exit 198
+    }
 
+    * Run the do file if "using" specified
     if "`using'" != "" {
         capture noisily do "`using'"
         if _rc == 0 {
@@ -42,28 +48,31 @@ program define statapush
 
 end
 
+* Pushover command
 capture program drop _statapush
 program define _statapush
     version 12.1
-    syntax [using/], Token(string) Userid(string) Message(string)
-    quietly !curl -s -F "token=`token'" -F "user=`userid'" -F "title=statapush" -F "message=`message'" https://api.pushover.net/1/messages.json
-    display "Notification pushed at `c(current_time)'"
+    syntax, Token(string) Userid(string) Message(string)
+    quietly !curl -s -F "token=`token'" -F "user=`userid'" -F "title=StataPush" -F "message=`message'" https://api.pushover.net/1/messages.json
+    display as text "Notification pushed at `c(current_time)'"
 end
 
+* Pushbullet command
 capture program drop _statapushbullet
 program define _statapushbullet
     version 12.1
-    syntax [using/], Token(string) Message(string) [Userid(string)]
+    syntax, Token(string) Message(string) [Userid(string)]
     quietly !curl https://api.pushbullet.com/v2/pushes -X POST -u "`token'": --header "Content-Type: application/json" --data-binary "{\"type\": \"note\", \"title\":\"StataPush\", \"body\": \"`message'\"}"
-    display "Notification pushed at `c(current_time)'"
+    display as text "Notification pushed at `c(current_time)'"
 end
 
+* Pull StataPush preferences
 capture program drop _statapushprefgrab
 program define _statapushprefgrab, rclass
     quietly findfile statapushconfig.ado
     quietly include "`r(fn)'"
     return local provider "`default_provider'"
     return local token    "``default_provider'_token'"
-    return local userid  "``default_provider'_userid'"
+    return local userid   "``default_provider'_userid'"
 end
 
