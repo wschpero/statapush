@@ -65,6 +65,23 @@ program define _statapushbullet
 	display as text "Notification pushed at `c(current_time)'"
 end
 
+* Upload a file with Pushbullet
+capture program drop _uploadpushbullet
+program define _uploadpushbullet
+    version 12.1
+    syntax, Token(string) File(string)
+    tempfile responsetxt
+    !curl --header 'Access-Token: `token'' --header 'Content-Type: application/json' --data-binary '{"file_name": "`file'", "file_type": "image/png"}' --request POST https://api.pushbullet.com/v2/upload-request >> "`responsetxt'"
+    file open jsonfile using `responsetxt', read text
+    file read jsonfile line
+    quietly display regexm(`"`macval(line)'"', "file_url.+,")
+    local file_url = substr(regexs(0), 12, length(regexs(0)) - 13)
+    quietly display regexm(`"`macval(line)'"', "upload_url.+}")
+    local upload_url = substr(regexs(0), 14, length(regexs(0)) - 15)
+    file close jsonfile
+    quietly !curl --header 'Access-Token: `token'' --header 'Content-Type: application/json' --data-binary '{"type": "file", "title": "statapush", "body": "`message'", "file_name":"`file'", "file_type":"image/png", "file_url":"`file_url'"}' --request POST https://api.pushbullet.com/v2/pushes
+end
+
 * Pull StataPush preferences
 capture program drop _statapushprefgrab
 program define _statapushprefgrab, rclass
