@@ -20,7 +20,10 @@ program define statapush
     }
 
     * Check whether attach specified correctly
-    if "`attach'" != "" & "`provider'" != "pushbullet" {
+    if "`attach'" != "" & "`provider'" == "pushbullet" {
+        local attach a("`attach'")
+    }
+    else if "`attach'" != "" & "`provider'" != "pushbullet" {
         display as error "Only 'pushbullet' supports 'attach'"
         exit 198
     }
@@ -41,14 +44,14 @@ program define statapush
     if "`using'" != "" {
         capture noisily do "`using'"
         if _rc == 0 {
-            `pushcmd', t(`token') u(`userid') m(`message') a(`attach')
+            `pushcmd', t(`token') u(`userid') m(`message') `attach'
         }
         else {
             `pushcmd', t(`token') u(`userid') m("There's an error in `using'.")
         }
     }
     else {
-        `pushcmd', t(`token') u(`userid') m(`message') a(`attach')
+        `pushcmd', t(`token') u(`userid') m(`message') `attach'
     }
 
 end
@@ -57,7 +60,7 @@ end
 capture program drop _statapush
 program define _statapush
     version 12.1
-    syntax, Token(string) Userid(string) Message(string) [Attach(string)]
+    syntax, Token(string) Userid(string) Message(string)
     quietly !curl -s -F "token=`token'" -F "user=`userid'" -F "title=statapush" -F "message=`message'" https://api.pushover.net/1/messages.json
     display as text "Notification pushed at `c(current_time)'"
 end
