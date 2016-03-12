@@ -19,7 +19,7 @@ program define statapush
         local provider "`r(provider)'"
     }
 
-    * Check whether attach specified correctly
+    * Check whether attach specified correctly, if so reassign as an option
     if "`attach'" != "" & "`provider'" == "pushbullet" {
         local attach a("`attach'")
     }
