@@ -100,8 +100,8 @@ program define _uploadpushbullet, rclass
     * Upload file
     quietly !curl -i -X POST `upload_url' -F "file=@`attach'"
 
-    return local file_url "`upload_url'"
-    return local upload_url "`file_url'"
+    return local file_url "`file_url'"
+    return local upload_url "`upload_url'"
 end
 
 * Pull StataPush preferences
