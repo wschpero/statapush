@@ -62,7 +62,16 @@ program define _statapush
     version 12.1
     syntax, Token(string) Userid(string) Message(string)
     quietly !curl -s -F "token=`token'" -F "user=`userid'" -F "title=statapush" -F "message=`message'" https://api.pushover.net/1/messages.json
-    display as text "Notification pushed at `c(current_time)'"
+    display as text "Notification pushed at `c(current_time)' via Pushover"
+end
+
+* IFTTT command
+capture program drop _statapushifttt
+program define _statapushifttt
+    version 12.1
+    syntax, Token(string) Message(string) [Userid(string)]
+    quietly !curl -X POST -H "Content-Type: application/json" -d '{"value1": "StataPush", "value2": "`message'"}' https://maker.ifttt.com/trigger/statapush/with/key/`token' 
+    display as text "Notification pushed at `c(current_time)' via IFTTT"
 end
 
 * Pushbullet command
@@ -80,7 +89,7 @@ program define _statapushbullet
         local file_type "`r(file_type)'"
         quietly !curl --header 'Access-Token: `token'' --header 'Content-Type: application/json' --data-binary '{"type": "file", "title": "statapush", "body": "`message'", "file_name":"`attach'", "file_type":"`file_type'", "file_url":"`file_url'"}' --request POST https://api.pushbullet.com/v2/pushes
     }
-	display as text "Notification pushed at `c(current_time)'"
+	display as text "Notification pushed at `c(current_time)' via Pushbullet"
 end
 
 * Upload a file with Pushbullet
