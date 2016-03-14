@@ -26,6 +26,9 @@ program define statapush
     else if lower("`provider'") == "pushbullet" {
         local pushcmd "_statapushbullet"
     }
+    else if lower("`provider'") == "ifttt" {
+        local pushcmd "_statapushifttt"
+    }
     else {
         display as error "Invalid provider: `provider'. Need to use 'pushover' or 'pushbullet'."
         exit 198
