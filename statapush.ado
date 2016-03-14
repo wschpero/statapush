@@ -77,7 +77,8 @@ program define _statapushbullet
         _uploadpushbullet, t("`token'") a("`attach'")
         local file_url "`r(file_url)'"
         local upload_url "`r(upload_url)'"
-        quietly !curl --header 'Access-Token: `token'' --header 'Content-Type: application/json' --data-binary '{"type": "file", "title": "statapush", "body": "`message'", "file_name":"`attach'", "file_type":"image/png", "file_url":"`file_url'"}' --request POST https://api.pushbullet.com/v2/pushes
+        local file_type "`r(file_type)'"
+        quietly !curl --header 'Access-Token: `token'' --header 'Content-Type: application/json' --data-binary '{"type": "file", "title": "statapush", "body": "`message'", "file_name":"`attach'", "file_type":"`file_type'", "file_url":"`file_url'"}' --request POST https://api.pushbullet.com/v2/pushes
     }
 	display as text "Notification pushed at `c(current_time)'"
 end
@@ -87,9 +88,33 @@ capture program drop _uploadpushbullet
 program define _uploadpushbullet, rclass
     version 12.1
     syntax, Token(string) Attach(string)
+    * Get file extension
+    local next "`attach'"
+    gettoken extension next: next, parse(".")
+    while (`"`next'"' != "") {
+        gettoken extension next: next, parse(".")
+    }
+
+    * Set file type
+    if inlist("`extension'", "png", "wmf", "jpeg", "jpg") {
+        local file_type "image/`extension'"
+    }
+    else if inlist("`extension'", "eps", "ps") {
+        local file_type "application/postscript"
+    }
+    else if inlist("`extension'", "pdf") {
+        local file_type "application/pdf"
+    }
+    else if inlist("`extension'", "log", "txt") {
+        local file_type "text/plain"
+    }
+    else {
+        local file_type "application/octet-stream"
+    }
+
     * Request URL from Pushbullet and save response to temporary file
     tempfile responsetxt
-    quietly !curl --header 'Access-Token: `token'' --header 'Content-Type: application/json' --data-binary '{"file_name": "`attach'", "file_type": "image/png"}' --request POST https://api.pushbullet.com/v2/upload-request >> "`responsetxt'"
+    quietly !curl --header 'Access-Token: `token'' --header 'Content-Type: application/json' --data-binary '{"file_name": "`attach'", "file_type": "`file_type'"}' --request POST https://api.pushbullet.com/v2/upload-request >> "`responsetxt'"
  
     * Read JSON response and extract URL info
     file open jsonfile using `responsetxt', read text
@@ -105,6 +130,7 @@ program define _uploadpushbullet, rclass
 
     return local file_url "`file_url'"
     return local upload_url "`upload_url'"
+    return local file_type "`file_type'"
 end
 
 * Pull StataPush preferences
