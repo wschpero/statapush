@@ -19,15 +19,6 @@ program define statapush
         local provider "`r(provider)'"
     }
 
-    * Check whether attach specified correctly, if so reassign as an option
-    if "`attach'" != "" & "`provider'" == "pushbullet" {
-        local attach a("`attach'")
-    }
-    else if "`attach'" != "" & "`provider'" != "pushbullet" {
-        display as error "Only 'pushbullet' supports 'attach'"
-        exit 198
-    }
-
     * Pick pushcmd based on provider
     if "`provider'" == "" | lower("`provider'") == "pushover" {
         local pushcmd "_statapush"
@@ -37,6 +28,15 @@ program define statapush
     }
     else {
         display as error "Invalid provider: `provider'. Need to use 'pushover' or 'pushbullet'."
+        exit 198
+    }
+
+    * Check whether attach specified correctly, if so reassign as an option
+    if "`attach'" != "" & lower("`provider'") == "pushbullet" {
+        local attach a("`attach'")
+    }
+    else if "`attach'" != "" & lower("`provider'") != "pushbullet" {
+        display as error "Only 'pushbullet' supports 'attach'"
         exit 198
     }
 
