@@ -43,6 +43,9 @@ program define statapush
         exit 198
     }
 
+    * Remove apostrophes from messages
+    local message = subinstr("`message'", char(39), "\u0027", .)
+
     * Run the do file if "using" specified, otherwise just push message
     if "`using'" != "" {
         capture noisily do "`using'"
@@ -64,7 +67,7 @@ capture program drop _statapush
 program define _statapush
     version 12.1
     syntax, Token(string) Userid(string) Message(string)
-    quietly !curl -s -F "token=`token'" -F "user=`userid'" -F "title=statapush" -F "message=`message'" https://api.pushover.net/1/messages.json
+    quietly !curl -s -F "token=`token'" -F "user=`userid'" -F "title=StataPush" -F "message=`message'" https://api.pushover.net/1/messages.json
     display as text "Notification pushed at `c(current_time)' via Pushover"
 end
 
@@ -83,7 +86,7 @@ program define _statapushbullet
     version 12.1
     syntax, Token(string) Message(string) [Userid(string)] [Attach(string)]
     if "`attach'" == "" {
-        quietly !curl -u "`token'": -X POST https://api.pushbullet.com/v2/pushes --header 'Content-Type: application/json' --data-binary '{"type": "note", "title": "statapush", "body": "`message'"}'
+        quietly !curl -u "`token'": -X POST https://api.pushbullet.com/v2/pushes --header 'Content-Type: application/json' --data-binary '{"type": "note", "title": "StataPush", "body": "`message'"}'
     }
     else {
         _uploadpushbullet, t("`token'") a("`attach'")
