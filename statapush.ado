@@ -90,9 +90,9 @@ program define _statapushbullet
     }
     else {
         _uploadpushbullet, t("`token'") a("`attach'")
-        local file_url "`r(file_url)'"
+        local file_url   "`r(file_url)'"
         local upload_url "`r(upload_url)'"
-        local file_type "`r(file_type)'"
+        local file_type  "`r(file_type)'"
         quietly !curl --header 'Access-Token: `token'' --header 'Content-Type: application/json' --data-binary '{"type": "file", "title": "statapush", "body": "`message'", "file_name":"`attach'", "file_type":"`file_type'", "file_url":"`file_url'"}' --request POST https://api.pushbullet.com/v2/pushes
     }
 	display as text "Notification pushed at `c(current_time)' via Pushbullet"
@@ -143,9 +143,9 @@ program define _uploadpushbullet, rclass
     * Upload file
     quietly !curl -i -X POST `upload_url' -F "file=@`attach'"
 
-    return local file_url "`file_url'"
+    return local file_url   "`file_url'"
     return local upload_url "`upload_url'"
-    return local file_type "`file_type'"
+    return local file_type  "`file_type'"
 end
 
 * Pull StataPush preferences
