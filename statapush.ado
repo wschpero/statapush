@@ -86,7 +86,7 @@ program define _statapushbullet
     version 12.1
     syntax, Token(string) Message(string) [Userid(string)] [Attach(string)]
     if "`attach'" == "" {
-        quietly !curl -u "`token'": -X POST https://api.pushbullet.com/v2/pushes --header 'Content-Type: application/json' --data-binary '{"type": "note", "title": "StataPush", "body": "`message'"}'
+        quietly !curl -u "`token'": -X POST https://api.pushbullet.com/v2/pushes --header "Content-Type: application/json" --data-binary "{\"type\": \"note\", \"title\": \"statapush\", \"body\": \"`message'\"}"
     }
     else {
         _uploadpushbullet, t("`token'") a("`attach'")
