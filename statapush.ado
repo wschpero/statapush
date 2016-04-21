@@ -83,18 +83,20 @@ program define _statapushbullet
     version 12.1
     syntax, Token(string) Message(string) [Userid(string)] [Attach(string)]
     if "`attach'" == "" {
-        quietly !curl -u "`token'": -X POST https://api.pushbullet.com/v2/pushes --header "Content-Type: application/json" --data-binary "{\"type\": \"note\", \"title\": \"statapush\", \"body\": \"`message'\"}"
+        quietly !curl -u "`token'": -X POST https://api.pushbullet.com/v2/pushes --header "Content-Type: application/json" --data-binary "{\"type\": \"note\", \"title\": \"StataPush\", \"body\": \"`message'\"}"
     }
     else {
         quietly capture _uploadpushbullet, t("`token'") a("`attach'")
         if _rc == 601 {
             display as error "File not found: `attach'. Will attempt to notify without attachment."
-            quietly !curl -u "`token'": -X POST https://api.pushbullet.com/v2/pushes --header "Content-Type: application/json" --data-binary "{\"type\": \"note\", \"title\": \"statapush\", \"body\": \"`message'\"}"
+            quietly !curl -u "`token'": -X POST https://api.pushbullet.com/v2/pushes --header "Content-Type: application/json" --data-binary "{\"type\": \"note\", \"title\": \"StataPush\", \"body\": \"`message'\"}"
         }
-        local file_url "`r(file_url)'"
-        local upload_url "`r(upload_url)'"
-        local file_type "`r(file_type)'"
-        quietly !curl --header 'Access-Token: `token'' --header 'Content-Type: application/json' --data-binary '{"type": "file", "title": "statapush", "body": "`message'", "file_name":"`attach'", "file_type":"`file_type'", "file_url":"`file_url'"}' --request POST https://api.pushbullet.com/v2/pushes
+        else {
+            local file_url "`r(file_url)'"
+            local upload_url "`r(upload_url)'"
+            local file_type "`r(file_type)'"
+            quietly !curl --header 'Access-Token: `token'' --header 'Content-Type: application/json' --data-binary '{"type": "file", "title": "StataPush", "body": "`message'", "file_name":"`attach'", "file_type":"`file_type'", "file_url":"`file_url'"}' --request POST https://api.pushbullet.com/v2/pushes
+        }
     }
 	display as text "Notification pushed at `c(current_time)' via Pushbullet"
 end
