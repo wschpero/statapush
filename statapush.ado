@@ -86,7 +86,11 @@ program define _statapushbullet
         quietly !curl -u "`token'": -X POST https://api.pushbullet.com/v2/pushes --header 'Content-Type: application/json' --data-binary '{"type": "note", "title": "statapush", "body": "`message'"}'
     }
     else {
-        _uploadpushbullet, t("`token'") a("`attach'")
+        quietly capture _uploadpushbullet, t("`token'") a("`attach'")
+        if _rc == 601 {
+            display as error "File not found: `attach'. Will attempt to notify without attachment."
+            quietly !curl -u "`token'": -X POST https://api.pushbullet.com/v2/pushes --header 'Content-Type: application/json' --data-binary '{"type": "note", "title": "statapush", "body": "`message'"}'
+        }
         local file_url "`r(file_url)'"
         local upload_url "`r(upload_url)'"
         local file_type "`r(file_type)'"
@@ -100,6 +104,14 @@ capture program drop _uploadpushbullet
 program define _uploadpushbullet, rclass
     version 12.1
     syntax, Token(string) Attach(string)
+
+    * Confirm file
+    quietly capture confirm file "`attach'"
+    if _rc != 0 {
+        display as error "File not found: `attach'"
+        exit 601
+    }
+
     * Get file extension
     local next "`attach'"
     gettoken extension next: next, parse(".")
