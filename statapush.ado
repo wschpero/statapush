@@ -83,13 +83,13 @@ program define _statapushbullet
     version 12.1
     syntax, Token(string) Message(string) [Userid(string)] [Attach(string)]
     if "`attach'" == "" {
-        quietly !curl -u "`token'": -X POST https://api.pushbullet.com/v2/pushes --header 'Content-Type: application/json' --data-binary '{"type": "note", "title": "statapush", "body": "`message'"}'
+        quietly !curl -u "`token'": -X POST https://api.pushbullet.com/v2/pushes --header "Content-Type: application/json" --data-binary "{\"type\": \"note\", \"title\": \"statapush\", \"body\": \"`message'\"}"
     }
     else {
         quietly capture _uploadpushbullet, t("`token'") a("`attach'")
         if _rc == 601 {
             display as error "File not found: `attach'. Will attempt to notify without attachment."
-            quietly !curl -u "`token'": -X POST https://api.pushbullet.com/v2/pushes --header 'Content-Type: application/json' --data-binary '{"type": "note", "title": "statapush", "body": "`message'"}'
+            quietly !curl -u "`token'": -X POST https://api.pushbullet.com/v2/pushes --header "Content-Type: application/json" --data-binary "{\"type\": \"note\", \"title\": \"statapush\", \"body\": \"`message'\"}"
         }
         local file_url "`r(file_url)'"
         local upload_url "`r(upload_url)'"
