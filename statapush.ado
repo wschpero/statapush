@@ -76,7 +76,7 @@ capture program drop _statapushifttt
 program define _statapushifttt
     version 12.1
     syntax, Token(string) Message(string) [Userid(string)]
-    quietly !curl -X POST -H "Content-Type: application/json" -d '{"value1": "StataPush", "value2": "`message'"}' https://maker.ifttt.com/trigger/statapush/with/key/`token' 
+    quietly !curl -X POST -H "Content-Type: application/json" -d "{\"value1\": \"StataPush\", \"value2\": \"`message'\"}" https://maker.ifttt.com/trigger/statapush/with/key/`token' 
     display as text "Notification pushed at `c(current_time)' via IFTTT"
 end
 
