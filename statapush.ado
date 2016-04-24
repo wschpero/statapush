@@ -43,9 +43,6 @@ program define statapush
         exit 198
     }
 
-    * Remove apostrophes from messages
-    local message = subinstr("`message'", char(39), "\u0027", .)
-
     * Run the do file if "using" specified, otherwise just push message
     if "`using'" != "" {
         capture noisily do "`using'"
@@ -67,7 +64,7 @@ capture program drop _statapush
 program define _statapush
     version 12.1
     syntax, Token(string) Userid(string) Message(string)
-    quietly !curl -s -F "token=`token'" -F "user=`userid'" -F "title=StataPush" -F "message=`message'" https://api.pushover.net/1/messages.json
+    quietly !curl -s -F "token=`token'" -F "user=`userid'" -F "title=statapush" -F "message=`message'" https://api.pushover.net/1/messages.json
     display as text "Notification pushed at `c(current_time)' via Pushover"
 end
 
@@ -86,14 +83,20 @@ program define _statapushbullet
     version 12.1
     syntax, Token(string) Message(string) [Userid(string)] [Attach(string)]
     if "`attach'" == "" {
-        quietly !curl -u "`token'": -X POST https://api.pushbullet.com/v2/pushes --header "Content-Type: application/json" --data-binary "{\"type\": \"note\", \"title\": \"statapush\", \"body\": \"`message'\"}"
+        quietly !curl -u "`token'": -X POST https://api.pushbullet.com/v2/pushes --header "Content-Type: application/json" --data-binary "{\"type\": \"note\", \"title\": \"StataPush\", \"body\": \"`message'\"}"
     }
     else {
-        _uploadpushbullet, t("`token'") a("`attach'")
-        local file_url   "`r(file_url)'"
-        local upload_url "`r(upload_url)'"
-        local file_type  "`r(file_type)'"
-        quietly !curl --header 'Access-Token: `token'' --header 'Content-Type: application/json' --data-binary '{"type": "file", "title": "statapush", "body": "`message'", "file_name":"`attach'", "file_type":"`file_type'", "file_url":"`file_url'"}' --request POST https://api.pushbullet.com/v2/pushes
+        quietly capture _uploadpushbullet, t("`token'") a("`attach'")
+        if _rc == 601 {
+            display as error "File not found: `attach'. Will attempt to notify without attachment."
+            quietly !curl -u "`token'": -X POST https://api.pushbullet.com/v2/pushes --header "Content-Type: application/json" --data-binary "{\"type\": \"note\", \"title\": \"StataPush\", \"body\": \"`message'\"}"
+        }
+        else {
+            local file_url "`r(file_url)'"
+            local upload_url "`r(upload_url)'"
+            local file_type "`r(file_type)'"
+            quietly !curl --header 'Access-Token: `token'' --header 'Content-Type: application/json' --data-binary '{"type": "file", "title": "StataPush", "body": "`message'", "file_name":"`attach'", "file_type":"`file_type'", "file_url":"`file_url'"}' --request POST https://api.pushbullet.com/v2/pushes
+        }
     }
 	display as text "Notification pushed at `c(current_time)' via Pushbullet"
 end
@@ -103,6 +106,14 @@ capture program drop _uploadpushbullet
 program define _uploadpushbullet, rclass
     version 12.1
     syntax, Token(string) Attach(string)
+
+    * Confirm file
+    quietly capture confirm file "`attach'"
+    if _rc != 0 {
+        display as error "File not found: `attach'"
+        exit 601
+    }
+
     * Get file extension
     local next "`attach'"
     gettoken extension next: next, parse(".")
@@ -143,9 +154,9 @@ program define _uploadpushbullet, rclass
     * Upload file
     quietly !curl -i -X POST `upload_url' -F "file=@`attach'"
 
-    return local file_url   "`file_url'"
+    return local file_url "`file_url'"
     return local upload_url "`upload_url'"
-    return local file_type  "`file_type'"
+    return local file_type "`file_type'"
 end
 
 * Pull StataPush preferences
