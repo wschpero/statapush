@@ -95,7 +95,7 @@ program define _statapushbullet
             local file_url "`r(file_url)'"
             local upload_url "`r(upload_url)'"
             local file_type "`r(file_type)'"
-            quietly !curl --header 'Access-Token: `token'' --header 'Content-Type: application/json' --data-binary '{"type": "file", "title": "StataPush", "body": "`message'", "file_name":"`attach'", "file_type":"`file_type'", "file_url":"`file_url'"}' --request POST https://api.pushbullet.com/v2/pushes
+            quietly !curl --header "Access-Token: `token'" --header "Content-Type: application/json" --data-binary "{\"type\": \"file\", \"title\": \"StataPush\", \"body\": \"`message'\", \"file_name\": \"`attach'\", \"file_type\": \"`file_type'\", \"file_url\": \"`file_url'\"}" --request POST https://api.pushbullet.com/v2/pushes
         }
     }
 	display as text "Notification pushed at `c(current_time)' via Pushbullet"
@@ -140,7 +140,7 @@ program define _uploadpushbullet, rclass
 
     * Request URL from Pushbullet and save response to temporary file
     tempfile responsetxt
-    quietly !curl --header 'Access-Token: `token'' --header 'Content-Type: application/json' --data-binary '{"file_name": "`attach'", "file_type": "`file_type'"}' --request POST https://api.pushbullet.com/v2/upload-request >> "`responsetxt'"
+    quietly !curl --header "Access-Token: `token'" --header "Content-Type: application/json" --data-binary "{\"file_name\": \"`attach'\", \"file_type\": \"`file_type'\"}" --request POST https://api.pushbullet.com/v2/upload-request >> "`responsetxt'"
  
     * Read JSON response and extract URL info
     file open jsonfile using `responsetxt', read text
