@@ -32,19 +32,28 @@
 
 {p 4 8}{bf:3.} Install the Pushover {browse "https://pushover.net/clients":client} on your device (Android, iOS, or Desktop).
 
+{p 4 8}{bf:For IFTTT}
+
+{p 4 8}{bf:1.} Create a free {browse "https://ifttt.com/join":IFTTT} account.
+
+{p 4 8}{bf:2.} Set up a IFTTT {browse "https://ifttt.com/maker":Maker} Channel.
+
+{p 4 8}{bf:3.} Then set up the {browse "https://ifttt.com/sms":SMS}, {browse "https://ifttt.com/email":email} or {browse "https://ifttt.com/if_notifications":IF} app channel depending on whether you use the StataPush {browse "https://ifttt.com/recipes/396911-statapush-to-sms":SMS}, StataPush {browse "https://ifttt.com/recipes/396816-statapush-to-email":email} or StataPush {browse "https://ifttt.com/recipes/396919-statapush-to-if-notification":IF} app recipe. You can create your own {browse "https://ifttt.com/wtf":recipe} to connect StataPush to hundreds of channels!
+
+
 {title: Options}
 
 {p 4 8}{bf:Note:} All three arguments below are required.
 
-{p 4 8}{cmdab:t:oken}({it:string}) Use this option to provide your Pushbullet or Pushover API token.
+{p 4 8}{cmdab:t:oken}({it:string}) Use this option to provide your Pushbullet, Pushover API or IFTTT token.
 
-{p 4 8}{cmdab:u:serid}({it:string}) Use this option to provide your Pushbullet username (email address) or Pushover user key.
+{p 4 8}{cmdab:u:serid}({it:string}) Use this option to provide your Pushbullet username (email address) or Pushover user key or IFTTT username (email address).
 
 {p 4 8}{cmdab:m:essage}({it:string}) Use this option to specify the message you would like included in your push notification.
 
 {p 4 8}{bf:Note:} The following argument is not required.
 
-{p 4 8}{cmdab:p:rovider}({it:string}) Use this option to specify the push notification service you would like to use (Pushbullet or Pushover). By default, Pushover is used. Specify "pushbullet" to use Pushbullet.
+{p 4 8}{cmdab:p:rovider}({it:string}) Use this option to specify the push notification service you would like to use (Pushbullet, Pushover or IFTTT). By default, Pushover is used. Specify "pushbullet" to use Pushbullet and "ifttt" to use IFTTT.
 
 {title: Examples}
 
