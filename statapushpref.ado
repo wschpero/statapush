@@ -10,6 +10,7 @@ capture program drop statapushpref
 program define statapushpref
     version 12.1
     syntax, Token(string) Userid(string) Provider(string)
+    local provider = lower("`provider'")
     quietly findfile statapushconfig.ado
     local statapushconfig "`r(fn)'"
     quietly file open statapushpref_ado using "`statapushconfig'", write append
