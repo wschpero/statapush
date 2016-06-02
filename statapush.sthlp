@@ -14,7 +14,7 @@
 
 {p 4 8}{cmd:statapush} requires cURL, an open source command line tool and library. cURL is installed by default on computers using Mac OS and Unix, but requires {browse "https://curl.haxx.se/download.html":manual installation} for Windows.
 
-{p 4 8}{cmd:statapush} also requires use of the free push notification service {browse "http://pushbullet.com/":Pushbullet} or {browse "https://pushover.net":Pushover}.
+{p 4 8}{cmd:statapush} also requires use of the free push notification service {browse "http://pushbullet.com/":Pushbullet}, {browse "https://pushover.net":Pushover} or {browse "https://ifttt.com/":IFTTT}.
 
 {p 4 8}{bf:For Pushbullet}
 
