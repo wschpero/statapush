@@ -54,11 +54,19 @@
 
 {p 4 8}If you would like to use Pushbullet instead of Pushover, simply add the optional "provider(pushbullet)" argument.
 
-{p 4 8}{cmd:statapush}, {cmdab:t:oken}({it:<INSERT API TOKEN>}) {cmdab:u:serid}({it:<INSERT USER KEY>}) {cmdab:m:essage}({it:<INSERT MESSAGE>}) {cmdab:p:rovider}({it:pushbullet}) 
+{p 4 8}{cmd:statapush}, {cmdab:t:oken}({it:<INSERT API TOKEN>}) {cmdab:u:serid}({it:<INSERT USER KEY>}) {cmdab:m:essage}({it:<INSERT MESSAGE>}) {cmdab:p:rovider}({it:pushbullet})
+
+{p 4 8}And same for IFTTT, simply add the optional "provider(ifttt)" argument.
+
+{p 4 8}{cmd:statapush}, {cmdab:t:oken}({it:<INSERT API TOKEN>}) {cmdab:u:serid}({it:<INSERT USER KEY>}) {cmdab:m:essage}({it:<INSERT MESSAGE>}) {cmdab:p:rovider}({it:ifttt})
 
 {p 4 8}If you would like statapush to notify you when your code has finished running {it:and} if an error is detected, run your code from the statapush command by specifying your do file with the syntax below.
 
 {p 4 8}{cmd:statapush} {cmd:using} {it:{help filename}}, {cmdab:t:oken}({it:<INSERT API TOKEN>}) {cmdab:u:serid}({it:<INSERT USER KEY>}) {cmdab:m:essage}({it:<INSERT MESSAGE>}) 
+
+{p 4 8}If you're using Pushbullet, you can attach a file that you'll receive with your notification.
+
+{p 4 8}{cmd:statapush}, {cmdab:t:oken}({it:<INSERT API TOKEN>}) {cmdab:u:serid}({it:<INSERT USER KEY>}) {cmdab:m:essage}({it:<INSERT MESSAGE>}) {cmdab:a:ttachment}({it:<INSERT FILE PATH>})
 
 {p 4 8}Lastly, you can set your default preferences so you do not need to include your API token, user key, and push notification service preferences every time you run the command.
 
