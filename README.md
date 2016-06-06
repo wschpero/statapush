@@ -18,7 +18,7 @@ statapush is a simple Stata module for sending push notifications. It is designe
 3. Install the Pushover [client](https://pushover.net/clients) on your device (Android, iOS, or Desktop).
 
 #####For IFTTT:
-1. Create a free [IFTTT](https://ifttt.com/join).
+1. Create a free [IFTTT](https://ifttt.com/join) account.
 2. Set up an [IFTTT Maker Channel](https://ifttt.com/maker).
 3. Add the StataPush [SMS](https://ifttt.com/recipes/396911-statapush-to-sms), [email](https://ifttt.com/recipes/396816-statapush-to-email) or [IF app](https://ifttt.com/recipes/396919-statapush-to-if-notification) recipe depending on which type of notification you would like to use. Be sure the recipe event name is "StataPush".
 
