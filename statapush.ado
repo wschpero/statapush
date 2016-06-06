@@ -9,7 +9,7 @@ Version: 3.0
 capture program drop statapush
 program define statapush
     version 12.1
-    syntax [using/], Message(string) [Token(string) Userid(string)] [Provider(string)] [Attach(string)]
+    syntax [using/], Message(string) [Token(string) Userid(string)] [Attach(string)] [Provider(string)]
 
     * Load default preferences if token/userid not given
     if "`token'" == "" {
@@ -39,7 +39,7 @@ program define statapush
         local attach a("`attach'")
     }
     else if "`attach'" != "" & lower("`provider'") != "pushbullet" {
-        display as error "Only 'pushbullet' supports 'attach'"
+        display as error "Only 'pushbullet' supports 'attach'."
         exit 198
     }
 
@@ -110,7 +110,7 @@ program define _uploadpushbullet, rclass
     * Confirm file
     quietly capture confirm file "`attach'"
     if _rc != 0 {
-        display as error "File not found: `attach'"
+        display as error "File not found: `attach'."
         exit 601
     }
 
