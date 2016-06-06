@@ -5,7 +5,7 @@ statapush is a simple Stata module for sending push notifications. It is designe
 
 1. **Stata**: statapush should be compatible with Stata v12.1+. While it may be compatible with earlier versions, it has not been tested in those environments.
 2. **cURL**:  statapush requires [cURL](https://curl.haxx.se/download.html), an open source command line tool and library. cURL is installed by default on most computers using Mac OS and Unix, but likely requires manual installation for Windows.
-3. **Pushbullet** or **Pushover**:  statapush requires users to sign up for a free [Pushbullet](https://www.pushbullet.com) or [Pushover](https://pushover.net) account. 
+3. **Pushbullet**, **Pushover** or **IFTTT**:  statapush requires users to sign up for a free [Pushbullet](https://www.pushbullet.com), [Pushover](https://pushover.net) or [IFTTT](https://ifttt.com/) account. 
 
 #####For Pushbullet:
 1. Create a free [Pushbullet](http://pushbullet.com/) account.
@@ -16,6 +16,11 @@ statapush is a simple Stata module for sending push notifications. It is designe
 1. Create a free [Pushover](https://pushover.net) account.
 2. Register a new Pushover [application](https://pushover.net/apps/build). Choose any name for the application (e.g., "statapush") and select "Application" under the "Type" dropdown.
 3. Install the Pushover [client](https://pushover.net/clients) on your device (Android, iOS, or Desktop).
+
+#####For IFTTT:
+1. Create a free [IFTTT](https://ifttt.com/join).
+2. Set up a [IFTTT Maker Channel](https://ifttt.com/maker).
+3. Then set up the [SMS](https://ifttt.com/sms), [email](https://ifttt.com/email) or [IF app](https://ifttt.com/if_notifications) channel depending on whether you use the [StataPush SMS](https://ifttt.com/recipes/396911-statapush-to-sms), [StataPush email](https://ifttt.com/recipes/396816-statapush-to-email) or [StataPush IF app](https://ifttt.com/recipes/396919-statapush-to-if-notification) recipe. You can [create your own recipe](https://ifttt.com/wtf) to connect StataPush to hundreds of channels!
 
 ###Installation Options
 
@@ -41,11 +46,19 @@ If you would like to use Pushbullet instead of Pushover, simply add the optional
 
     statapush, token(<INSERT API TOKEN>) userid(<INSERT USER KEY>) message(<INSERT MESSAGE>) provider(pushbullet)
 
+And same for IFTTT,
+
+    statapush, token(<INSERT API TOKEN>) userid(<INSERT USER KEY>) message(<INSERT MESSAGE>) provider(ifttt)
+
 If you would like statapush to notify you when your code has finished running *and* if an error is detected, run your code from the statapush command by specifying your do file with the syntax below.
 
     statapush using <INSERT FILENAME>, token(<INSERT TOKEN>) userid(<INSERT USER KEY>) message(<INSERT MESSAGE>)
 
-Lastly, you can set your default preferences so you do not need to include your API token and user key every time you run the command. Your preferences are saved in a file called statapushconfig.ado along with your other Stata packages. Be sure to specify either "pushbullet" or "pushover" in the the "provider()" argument.
+If you're using Pushbullet, you can attach a file that you'll receive with your notification.
+
+    statapush, token(<INSERT TOKEN>) userid(<INSERT USER KEY>) message(<INSERT MESSAGE>) provider(pushbullet) attachment(<INSERT FILE PATH>)
+
+Lastly, you can set your default preferences so you do not need to include your API token and user key every time you run the command. Your preferences are saved in a file called statapushconfig.ado along with your other Stata packages. Be sure to specify either "pushbullet" or "pushover" or "ifttt" in the the "provider()" argument.
 
     statapushpref, token(<INSERT API TOKEN>) userid(<INSERT USER KEY>) provider(<INSERT PROVIDER>)
     statapush, message(<INSERT MESSAGE>)
@@ -56,4 +69,4 @@ Please [let me know](https://github.com/wschpero/statapush/issues) if you encoun
 
 ###Disclaimers
 
-This Stata module and its authors are not affiliated with [Pushbullet](http://pushbullet.com/) or [Pushover](https://pushover.net).
+This Stata module and its authors are not affiliated with [Pushbullet](http://pushbullet.com/), [Pushover](https://pushover.net) or [IFTTT](https://ifttt.com/).

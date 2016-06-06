@@ -14,7 +14,7 @@
 
 {p 4 8}{cmd:statapush} requires cURL, an open source command line tool and library. cURL is installed by default on computers using Mac OS and Unix, but requires {browse "https://curl.haxx.se/download.html":manual installation} for Windows.
 
-{p 4 8}{cmd:statapush} also requires use of the free push notification service {browse "http://pushbullet.com/":Pushbullet} or {browse "https://pushover.net":Pushover}.
+{p 4 8}{cmd:statapush} also requires use of the free push notification service {browse "http://pushbullet.com/":Pushbullet}, {browse "https://pushover.net":Pushover} or {browse "https://ifttt.com/":IFTTT}.
 
 {p 4 8}{bf:For Pushbullet}
 
@@ -32,19 +32,28 @@
 
 {p 4 8}{bf:3.} Install the Pushover {browse "https://pushover.net/clients":client} on your device (Android, iOS, or Desktop).
 
+{p 4 8}{bf:For IFTTT}
+
+{p 4 8}{bf:1.} Create a free {browse "https://ifttt.com/join":IFTTT} account.
+
+{p 4 8}{bf:2.} Set up a IFTTT {browse "https://ifttt.com/maker":Maker} Channel.
+
+{p 4 8}{bf:3.} Then set up the {browse "https://ifttt.com/sms":SMS}, {browse "https://ifttt.com/email":email} or {browse "https://ifttt.com/if_notifications":IF} app channel depending on whether you use the StataPush {browse "https://ifttt.com/recipes/396911-statapush-to-sms":SMS}, StataPush {browse "https://ifttt.com/recipes/396816-statapush-to-email":email} or StataPush {browse "https://ifttt.com/recipes/396919-statapush-to-if-notification":IF} app recipe. You can create your own {browse "https://ifttt.com/wtf":recipe} to connect StataPush to hundreds of channels!
+
+
 {title: Options}
 
 {p 4 8}{bf:Note:} All three arguments below are required.
 
-{p 4 8}{cmdab:t:oken}({it:string}) Use this option to provide your Pushbullet or Pushover API token.
+{p 4 8}{cmdab:t:oken}({it:string}) Use this option to provide your Pushbullet, Pushover API or IFTTT token.
 
-{p 4 8}{cmdab:u:serid}({it:string}) Use this option to provide your Pushbullet username (email address) or Pushover user key.
+{p 4 8}{cmdab:u:serid}({it:string}) Use this option to provide your Pushbullet username (email address) or Pushover user key or IFTTT username (email address).
 
 {p 4 8}{cmdab:m:essage}({it:string}) Use this option to specify the message you would like included in your push notification.
 
 {p 4 8}{bf:Note:} The following argument is not required.
 
-{p 4 8}{cmdab:p:rovider}({it:string}) Use this option to specify the push notification service you would like to use (Pushbullet or Pushover). By default, Pushover is used. Specify "pushbullet" to use Pushbullet.
+{p 4 8}{cmdab:p:rovider}({it:string}) Use this option to specify the push notification service you would like to use (Pushbullet, Pushover or IFTTT). By default, Pushover is used. Specify "pushbullet" to use Pushbullet and "ifttt" to use IFTTT.
 
 {title: Examples}
 
@@ -54,11 +63,19 @@
 
 {p 4 8}If you would like to use Pushbullet instead of Pushover, simply add the optional "provider(pushbullet)" argument.
 
-{p 4 8}{cmd:statapush}, {cmdab:t:oken}({it:<INSERT API TOKEN>}) {cmdab:u:serid}({it:<INSERT USER KEY>}) {cmdab:m:essage}({it:<INSERT MESSAGE>}) {cmdab:p:rovider}({it:pushbullet}) 
+{p 4 8}{cmd:statapush}, {cmdab:t:oken}({it:<INSERT API TOKEN>}) {cmdab:u:serid}({it:<INSERT USER KEY>}) {cmdab:m:essage}({it:<INSERT MESSAGE>}) {cmdab:p:rovider}({it:pushbullet})
+
+{p 4 8}And same for IFTTT, simply add the optional "provider(ifttt)" argument.
+
+{p 4 8}{cmd:statapush}, {cmdab:t:oken}({it:<INSERT API TOKEN>}) {cmdab:u:serid}({it:<INSERT USER KEY>}) {cmdab:m:essage}({it:<INSERT MESSAGE>}) {cmdab:p:rovider}({it:ifttt})
 
 {p 4 8}If you would like statapush to notify you when your code has finished running {it:and} if an error is detected, run your code from the statapush command by specifying your do file with the syntax below.
 
 {p 4 8}{cmd:statapush} {cmd:using} {it:{help filename}}, {cmdab:t:oken}({it:<INSERT API TOKEN>}) {cmdab:u:serid}({it:<INSERT USER KEY>}) {cmdab:m:essage}({it:<INSERT MESSAGE>}) 
+
+{p 4 8}If you're using Pushbullet, you can attach a file that you'll receive with your notification.
+
+{p 4 8}{cmd:statapush}, {cmdab:t:oken}({it:<INSERT API TOKEN>}) {cmdab:u:serid}({it:<INSERT USER KEY>}) {cmdab:m:essage}({it:<INSERT MESSAGE>}) {cmdab:a:ttachment}({it:<INSERT FILE PATH>})
 
 {p 4 8}Lastly, you can set your default preferences so you do not need to include your API token, user key, and push notification service preferences every time you run the command.
 
