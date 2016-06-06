@@ -2,8 +2,8 @@
 statapush: Stata module for sending push notifications
 Authors: William L. Schpero and Vikram Jambulapati
 Contact: william.schpero@yale.edu
-Date: 022016
-Version: 2.0
+Date: 060516
+Version: 3.0
 */
 
 capture program drop statapush
@@ -30,7 +30,7 @@ program define statapush
         local pushcmd "_statapushifttt"
     }
     else {
-        display as error "Invalid provider: `provider'. Need to use 'pushover' or 'pushbullet'."
+        display as error "Invalid provider: `provider'. Need to use 'pushover', 'pushbullet', or 'ifttt'."
         exit 198
     }
 

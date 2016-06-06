@@ -19,8 +19,8 @@ statapush is a simple Stata module for sending push notifications. It is designe
 
 #####For IFTTT:
 1. Create a free [IFTTT](https://ifttt.com/join).
-2. Set up a [IFTTT Maker Channel](https://ifttt.com/maker).
-3. Then set up the [SMS](https://ifttt.com/sms), [email](https://ifttt.com/email) or [IF app](https://ifttt.com/if_notifications) channel depending on whether you use the [StataPush SMS](https://ifttt.com/recipes/396911-statapush-to-sms), [StataPush email](https://ifttt.com/recipes/396816-statapush-to-email) or [StataPush IF app](https://ifttt.com/recipes/396919-statapush-to-if-notification) recipe. You can [create your own recipe](https://ifttt.com/wtf) to connect StataPush to hundreds of channels!
+2. Set up an [IFTTT Maker Channel](https://ifttt.com/maker).
+3. Add the StataPush [SMS](https://ifttt.com/recipes/396911-statapush-to-sms), [email](https://ifttt.com/recipes/396816-statapush-to-email) or [IF app](https://ifttt.com/recipes/396919-statapush-to-if-notification) recipe depending on which type of notification you would like to use. Be sure the recipe event name is "StataPush".
 
 ###Installation Options
 
@@ -46,7 +46,7 @@ If you would like to use Pushbullet instead of Pushover, simply add the optional
 
     statapush, token(<INSERT API TOKEN>) userid(<INSERT USER KEY>) message(<INSERT MESSAGE>) provider(pushbullet)
 
-And same for IFTTT,
+To use IFTTT, instead add the optional "provider(ifttt)" argument.
 
     statapush, token(<INSERT API TOKEN>) userid(<INSERT USER KEY>) message(<INSERT MESSAGE>) provider(ifttt)
 
@@ -54,11 +54,11 @@ If you would like statapush to notify you when your code has finished running *a
 
     statapush using <INSERT FILENAME>, token(<INSERT TOKEN>) userid(<INSERT USER KEY>) message(<INSERT MESSAGE>)
 
-If you're using Pushbullet, you can attach a file that you'll receive with your notification.
+If you're using Pushbullet, you can attach a file (e.g., output graph) that you'll receive with your notification.
 
     statapush, token(<INSERT TOKEN>) userid(<INSERT USER KEY>) message(<INSERT MESSAGE>) provider(pushbullet) attachment(<INSERT FILE PATH>)
 
-Lastly, you can set your default preferences so you do not need to include your API token and user key every time you run the command. Your preferences are saved in a file called statapushconfig.ado along with your other Stata packages. Be sure to specify either "pushbullet" or "pushover" or "ifttt" in the the "provider()" argument.
+Lastly, you can set your default preferences so you do not need to include your token and user key every time you run the command.
 
     statapushpref, token(<INSERT API TOKEN>) userid(<INSERT USER KEY>) provider(<INSERT PROVIDER>)
     statapush, message(<INSERT MESSAGE>)
@@ -69,4 +69,4 @@ Please [let me know](https://github.com/wschpero/statapush/issues) if you encoun
 
 ###Disclaimers
 
-This Stata module and its authors are not affiliated with [Pushbullet](http://pushbullet.com/), [Pushover](https://pushover.net) or [IFTTT](https://ifttt.com/).
+This Stata module and its authors are not affiliated with [Pushbullet](http://pushbullet.com/), [Pushover](https://pushover.net), or [IFTTT](https://ifttt.com/).
