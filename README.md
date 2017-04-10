@@ -7,17 +7,17 @@ statapush is a simple Stata module for sending push notifications. It is designe
 2. **cURL**:  statapush requires [cURL](https://curl.haxx.se/download.html), an open source command line tool and library. cURL is installed by default on most computers using Mac OS and Unix, but likely requires manual installation for Windows.
 3. **Pushbullet**, **Pushover** or **IFTTT**:  statapush requires users to sign up for a free [Pushbullet](https://www.pushbullet.com), [Pushover](https://pushover.net) or [IFTTT](https://ifttt.com/) account.
 
-##### For Pushbullet:
+#### For Pushbullet:
 1. Create a free [Pushbullet](http://pushbullet.com/) account.
 2. Create an API token under [account settings](https://www.pushbullet.com/#settings/account) by clicking "Create Access Token."
 3. Install the Pushbullet [client](https://www.pushbullet.com/apps) on your device (Android, iOS, or Desktop).
 
-##### For Pushover:
+#### For Pushover:
 1. Create a free [Pushover](https://pushover.net) account.
 2. Register a new Pushover [application](https://pushover.net/apps/build). Choose any name for the application (e.g., "statapush") and select "Application" under the "Type" dropdown.
 3. Install the Pushover [client](https://pushover.net/clients) on your device (Android, iOS, or Desktop).
 
-##### For IFTTT:
+#### For IFTTT:
 1. Create a free [IFTTT](https://ifttt.com/join) account.
 2. Set up an [IFTTT Maker Channel](https://ifttt.com/maker).
 3. Add the StataPush [SMS](https://ifttt.com/recipes/396911-statapush-to-sms), [email](https://ifttt.com/recipes/396816-statapush-to-email) or [IF app](https://ifttt.com/recipes/396919-statapush-to-if-notification) recipe depending on which type of notification you would like to use. Be sure the recipe event name is "StataPush".
